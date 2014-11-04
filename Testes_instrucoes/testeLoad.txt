@@ -1,0 +1,3 @@
+zeros R14
+lcl R14, 1000
+load R16, R14

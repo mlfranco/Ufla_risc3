@@ -1,0 +1,1 @@
+void carregaRegistradorDaMemoria(char *aluResult, int memRead, int memWrite, char *ReadData, char *regC);

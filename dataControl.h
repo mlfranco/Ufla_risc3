@@ -1,0 +1,1 @@
+void dataControl(char *opcode) ;

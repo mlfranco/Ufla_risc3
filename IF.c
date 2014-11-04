@@ -7,27 +7,27 @@
 #define TAM_MEMORIA 1000 //Tamanho da memorio de instruções 
 #define TAM_INSTRUCAO 32
 
-extern char memInstrucoes[TAM_MEMORIA][TAM_INSTRUCAO + 1];
+extern char memInstrucoes[TAM_MEMORIA][TAM_INSTRUCAO];
 extern int pc;
-
-int buscaInstrucao(char *instrucao) { //Instruction Fecth
+ /**
+  * Função responsavel pelo partede IF do ciclo 
+  * tem como objetivo carregar a intrução que era isada no ciclo
+  * @param instrucao variavel no qualé armazenada intrução
+  */
+void buscaInstrucao(char *instrucao) { //Instruction Fecth
 
     int i;
     if (pc <= TAM_MEMORIA) {
-        for (i = 0; i < 32; i++) {
-            instrucao[i] = memInstrucoes[pc][i];
-        }
+        instrucao[0] = memInstrucoes[pc][0];
     }
-    while (instrucao[0] == ' ') {
+    while (instrucao[0] == '\0') {
         pc++;
-        for (i = 0; i < 32; i++) {
-            instrucao[i] = memInstrucoes[pc][i];
-        }
+        instrucao[0] = memInstrucoes[pc][0];
     }
-    printf("PC: %d, Instrução: %s\n", pc, instrucao);
+    for (i = 0; i < 32; i++) {
+        instrucao[i] = memInstrucoes[pc][i];
+    }
+    printf("Valor atual do PC: %d       Instrução Atual : %s\n", pc, instrucao);
     pc++;
-    if (!strncmp(instrucao, "11111111111111111111111111111111", 32)) {
-        return 1;
-    }
-    return 0;
+
 }

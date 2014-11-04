@@ -1,0 +1,1 @@
+void mux_WB(int mem2Reg, char *read_data, char *aluResult, char *regC);

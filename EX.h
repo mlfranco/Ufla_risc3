@@ -1,0 +1,1 @@
+void ALU(char *valorA, char *valorB, int aluOp, char *opCode, char *aluResult)  ;
